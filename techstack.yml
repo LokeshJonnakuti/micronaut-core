@@ -1,0 +1,176 @@
+repo_name: LokeshJonnakuti/micronaut-core
+report_id: e3a1d1891a7872a64edb5ef11953c95f
+version: 0.1
+repo_type: Public
+timestamp: '2024-04-14T10:58:10+00:00'
+requested_by: wetted
+provider: github
+branch: 4.2.x
+detected_tools_count: 14
+tools:
+- name: Groovy
+  description: A multi-faceted language for the Java platform
+  website_url: https://groovy-lang.org/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/997/default_7ff5fcd857f42ad25149f659693d8930bffddf14.png
+  detection_source_url: https://github.com/LokeshJonnakuti/micronaut-core
+  detection_source: Repo Metadata
+- name: Java
+  description: A concurrent, class-based, object-oriented, language specifically designed
+    to have as few implementation dependencies as possible
+  website_url: https://www.java.com
+  open_source: true
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/995/K85ZWV2F.png
+  detection_source_url: https://github.com/LokeshJonnakuti/micronaut-core
+  detection_source: Repo Metadata
+- name: Kotlin
+  description: Statically typed Programming Language targeting JVM and JavaScript
+  website_url: https://kotlinlang.org/
+  open_source: true
+  hosted_saas: true
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/3750/pCfEzr6L.png
+  detection_source_url: https://github.com/LokeshJonnakuti/micronaut-core
+  detection_source: Repo Metadata
+- name: Git
+  description: Fast, scalable, distributed revision control system
+  website_url: http://git-scm.com/
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Version Control System
+  image_url: https://img.stackshare.io/service/1046/git.png
+  detection_source_url: https://github.com/LokeshJonnakuti/micronaut-core
+  detection_source: Repo Metadata
+- name: GitHub Actions
+  description: Automate your workflow from idea to production
+  website_url: https://github.com/features/actions
+  open_source: false
+  hosted_saas: true
+  category: Build, Test, Deploy
+  sub_category: Continuous Integration
+  image_url: https://img.stackshare.io/service/11563/actions.png
+  detection_source_url: https://github.com/LokeshJonnakuti/micronaut-core/blob/4.2.x/.github/workflows/central-sync.yml
+  detection_source: ".github/workflows/central-sync.yml"
+  last_updated_by: micronaut-build
+  last_updated_on: 2023-12-01 08:46:29.000000000 Z
+- name: Gradle
+  description: A powerful build system for the JVM
+  website_url: https://www.gradle.org/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Build, Test, Deploy
+  sub_category: Java Build Tools
+  image_url: https://img.stackshare.io/service/975/gradlephant-social-black-bg.png
+  detection_source_url: https://github.com/LokeshJonnakuti/micronaut-core/blob/4.2.x/aop/build.gradle
+  detection_source: aop/build.gradle
+  last_updated_by: graemerocher
+  last_updated_on: 2017-05-12 13:09:05.000000000 Z
+- name: Logback
+  description: A logging framework for Java applications
+  website_url: https://logback.qos.ch/
+  open_source: false
+  hosted_saas: false
+  category: Monitoring
+  sub_category: Log Management
+  image_url: https://img.stackshare.io/service/2923/05518ecaa42841e834421e9d6987b04f_400x400.png
+  detection_source_url: https://github.com/LokeshJonnakuti/micronaut-core/blob/4.2.x/aop/src/test/resources/logback.xml
+  detection_source: aop/src/test/resources/logback.xml
+  last_updated_by: Sergio del Amo
+  last_updated_on: 2021-06-22 16:36:50.000000000 Z
+- name: Apache Camel
+  description: A versatile open source integration framework
+  website_url: https://camel.apache.org/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Application Hosting
+  sub_category: Platform as a Service
+  image_url: https://img.stackshare.io/service/3276/xWt1RFo6_400x400.jpg
+  detection_source_url: https://github.com/LokeshJonnakuti/micronaut-core/blob/4.2.x/context-propagation/src/test/resources/application.yml
+  detection_source: context-propagation/src/test/resources/application.yml
+  last_updated_by: Denis Stepanov
+  last_updated_on: 2023-05-30 17:34:41.000000000 Z
+- name: Dataform
+  description: A framework for managing SQL based data operations.
+  website_url: https://dataform.co/
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Analytics
+  sub_category: Business Intelligence
+  image_url: https://img.stackshare.io/service/11236/Group_22__3_.png
+  detection_source_url: https://github.com/LokeshJonnakuti/micronaut-core/blob/4.2.x/jackson-databind/build.gradle
+  detection_source: jackson-databind/build.gradle
+  last_updated_by: Denis Stepanov
+  last_updated_on: 2023-06-20 14:43:52.000000000 Z
+- name: Shell
+  description: A shell is a text-based terminal, used for manipulating programs and
+    files. Shell scripts typically manage program execution.
+  website_url: https://en.wikipedia.org/wiki/Shell_script
+  open_source: false
+  hosted_saas: false
+  category: Languages & Frameworks
+  sub_category: Languages
+  image_url: https://img.stackshare.io/service/4631/default_c2062d40130562bdc836c13dbca02d318205a962.png
+  detection_source_url: https://github.com/LokeshJonnakuti/micronaut-core
+  detection_source: Repo Metadata
+- name: com.fasterxml.jackson.dataformat:jackson-dataformat-xml
+  description: Data format extension for Jackson
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/LokeshJonnakuti/micronaut-core/blob/4.2.x/jackson-databind/build.gradle
+  detection_source: jackson-databind/build.gradle
+  last_updated_by: Denis Stepanov
+  last_updated_on: 2023-06-20 14:43:52.000000000 Z
+- name: com.squareup.okio:okio
+  description: A modern I/O API for Java
+  version: 3.6.0
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/LokeshJonnakuti/micronaut-core/blob/4.2.x/inject-kotlin-test/build.gradle
+  detection_source: inject-kotlin-test/build.gradle
+  last_updated_by: renovate[bot]
+  last_updated_on: 2023-11-08 12:44:31.000000000 Z
+- name: io.github.classgraph:classgraph
+  description: The uber-fast
+  version: 4.8.149
+  license: MIT
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/LokeshJonnakuti/micronaut-core/blob/4.2.x/inject-kotlin-test/build.gradle
+  detection_source: inject-kotlin-test/build.gradle
+  last_updated_by: Graeme Rocher
+  last_updated_on: 2023-02-07 16:07:10.000000000 Z
+- name: org.jetbrains.kotlin:kotlin-gradle-plugin
+  description: 'Null'
+  license: Apache-2.0
+  open_source: true
+  hosted_saas: false
+  category: Libraries
+  sub_category: Maven Packages
+  image_url: https://img.stackshare.io/package/maven/image.png
+  detection_source_url: https://github.com/LokeshJonnakuti/micronaut-core/blob/4.2.x/buildSrc/build.gradle
+  detection_source: buildSrc/build.gradle
+  last_updated_by: renovate[bot]
+  last_updated_on: 2023-11-11 08:38:11.000000000 Z
