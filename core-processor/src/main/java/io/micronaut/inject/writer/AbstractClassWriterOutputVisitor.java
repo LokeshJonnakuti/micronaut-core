@@ -15,6 +15,7 @@
  */
 package io.micronaut.inject.writer;
 
+import io.github.pixee.security.BoundedLineReader;
 import io.micronaut.core.annotation.Internal;
 import io.micronaut.core.util.StringUtils;
 import io.micronaut.inject.ast.Element;
@@ -99,10 +100,10 @@ public abstract class AbstractClassWriterOutputVisitor implements ClassWriterOut
                 // add the existing definitions
                 try (BufferedReader bufferedReader = new BufferedReader(generatedFile.openReader())) {
 
-                    String line = bufferedReader.readLine();
+                    String line = BoundedLineReader.readLine(bufferedReader, 5_000_000);
                     while (line != null) {
                         serviceTypes.add(line);
-                        line = bufferedReader.readLine();
+                        line = BoundedLineReader.readLine(bufferedReader, 5_000_000);
                     }
                 } catch (FileNotFoundException | java.nio.file.NoSuchFileException x) {
                     // doesn't exist
