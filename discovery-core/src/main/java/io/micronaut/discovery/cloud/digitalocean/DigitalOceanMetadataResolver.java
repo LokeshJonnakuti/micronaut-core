@@ -17,6 +17,8 @@ package io.micronaut.discovery.cloud.digitalocean;
 
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import io.micronaut.context.annotation.Requires;
 import io.micronaut.context.env.Environment;
 import io.micronaut.core.annotation.Experimental;
@@ -115,7 +117,7 @@ public class DigitalOceanMetadataResolver implements ComputeInstanceMetadataReso
 
         try {
             String metadataUrl = configuration.getUrl();
-            JsonNode metadataJson = readMetadataUrl(new URL(metadataUrl), CONNECTION_TIMEOUT_IN_MILLS, READ_TIMEOUT_IN_MILLS, JsonNodeTreeCodec.getInstance().withConfig(jsonStreamConfig), jsonFactory, new HashMap<>());
+            JsonNode metadataJson = readMetadataUrl(Urls.create(metadataUrl, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS), CONNECTION_TIMEOUT_IN_MILLS, READ_TIMEOUT_IN_MILLS, JsonNodeTreeCodec.getInstance().withConfig(jsonStreamConfig), jsonFactory, new HashMap<>());
             if (metadataJson != null) {
                 instanceMetadata.setInstanceId(textValue(metadataJson, DROPLET_ID));
                 instanceMetadata.setName(textValue(metadataJson, HOSTNAME));
