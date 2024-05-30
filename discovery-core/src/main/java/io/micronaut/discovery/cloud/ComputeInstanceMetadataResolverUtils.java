@@ -102,7 +102,7 @@ public class ComputeInstanceMetadataResolverUtils {
     private static InputStream openMetadataUrl(URL url, int connectionTimeoutMs, int readTimeoutMs, Map<String, String> requestProperties) throws IOException {
         URLConnection urlConnection = url.openConnection();
 
-        if (url.getProtocol().equalsIgnoreCase("file")) {
+        if ("file".equalsIgnoreCase(url.getProtocol())) {
             urlConnection.connect();
             return urlConnection.getInputStream();
         } else {

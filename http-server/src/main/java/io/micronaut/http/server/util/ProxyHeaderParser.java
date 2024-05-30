@@ -76,13 +76,13 @@ public class ProxyHeaderParser {
                             if (parts.length == 2) {
                                 String key = parts[0].trim();
                                 String value = trimQuotes(parts[1].trim());
-                                if (key.equalsIgnoreCase(FOR)) {
+                                if (FOR.equalsIgnoreCase(key)) {
                                     forwardedFor.add(value);
-                                } else if (key.equalsIgnoreCase(BY) && forwardedBy == null) {
+                                } else if (BY.equalsIgnoreCase(key) && forwardedBy == null) {
                                     forwardedBy = value;
-                                } else if (key.equalsIgnoreCase(PROTO) && forwardedProto == null) {
+                                } else if (PROTO.equalsIgnoreCase(key) && forwardedProto == null) {
                                     forwardedProto = value;
-                                } else if (key.equalsIgnoreCase(HOST) && forwardedHost == null) {
+                                } else if (HOST.equalsIgnoreCase(key) && forwardedHost == null) {
                                     if (value.contains(":")) {
                                         String[] host = value.split(":");
                                         forwardedHost = host[0];

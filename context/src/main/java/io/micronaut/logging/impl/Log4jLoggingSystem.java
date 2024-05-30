@@ -36,7 +36,7 @@ public class Log4jLoggingSystem implements LoggingSystem {
 
     @Override
     public void setLogLevel(String name, LogLevel level) {
-        if (name.equalsIgnoreCase("root")) {
+        if ("root".equalsIgnoreCase(name)) {
             Configurator.setRootLevel(toLevel(level));
         } else {
             Configurator.setLevel(name, toLevel(level));

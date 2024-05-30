@@ -1175,9 +1175,9 @@ public abstract class AbstractAnnotationMetadataBuilder<T, A> {
                     }
                     // special case: don't add stereotype for @Nonnull when it's marked as UNKNOWN/MAYBE/NEVER.
                     // https://github.com/micronaut-projects/micronaut-core/issues/6795
-                    if (stereotypeName.equals("jakarta.annotation.Nonnull")) {
+                    if ("jakarta.annotation.Nonnull".equals(stereotypeName)) {
                         String when = Objects.toString(stereotypeAnnotationValue.getValues().get("when"));
-                        return !(when.equals("UNKNOWN") || when.equals("MAYBE") || when.equals("NEVER"));
+                        return !("UNKNOWN".equals(when) || "MAYBE".equals(when) || "NEVER".equals(when));
                     }
                     return true;
                 }).flatMap(stereotype -> processAnnotation(newContext, stereotype)).toList();

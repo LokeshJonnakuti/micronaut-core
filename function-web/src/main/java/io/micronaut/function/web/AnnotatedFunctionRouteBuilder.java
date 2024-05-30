@@ -102,7 +102,7 @@ public class AnnotatedFunctionRouteBuilder
             boolean implementsFnInterface = false;
             if (Stream.of(java.util.function.Function.class, Consumer.class, BiFunction.class, BiConsumer.class).anyMatch(type -> type.isAssignableFrom(declaringType))) {
                 implementsFnInterface = true;
-                if (methodName.equals("accept") || methodName.equals("apply")) {
+                if ("accept".equals(methodName) || "apply".equals(methodName)) {
                     String functionPath = resolveFunctionPath(methodName, declaringType, functionName);
                     String[] argumentNames = method.getArgumentNames();
                     String argumentName = argumentNames[0];
@@ -141,7 +141,7 @@ public class AnnotatedFunctionRouteBuilder
 
             if (routes.isEmpty() && Supplier.class.isAssignableFrom(declaringType)) {
                 implementsFnInterface = true;
-                if (methodName.equals("get")) {
+                if ("get".equals(methodName)) {
                     String functionPath = resolveFunctionPath(methodName, declaringType, functionName);
                     routes.add(GET(functionPath, beanDefinition, method));
                     routes.add(HEAD(functionPath, beanDefinition, method));

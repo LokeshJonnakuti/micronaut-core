@@ -132,7 +132,7 @@ public class DefaultClassPathResourceLoader implements ClassPathResourceLoader {
             if (startsWithBase(url)) {
                 try {
                     URI uri = url.toURI();
-                    if (uri.getScheme().equals("jar")) {
+                    if ("jar".equals(uri.getScheme())) {
                         synchronized (DefaultClassPathResourceLoader.class) {
                             FileSystem fileSystem = null;
                             try {
@@ -172,7 +172,7 @@ public class DefaultClassPathResourceLoader implements ClassPathResourceLoader {
                                 }
                             }
                         }
-                    } else if (uri.getScheme().equals("file")) {
+                    } else if ("file".equals(uri.getScheme())) {
                         Path pathObject = Paths.get(uri);
                         if (Files.isDirectory(pathObject)) {
                             return Optional.empty();
@@ -323,7 +323,7 @@ public class DefaultClassPathResourceLoader implements ClassPathResourceLoader {
                 try {
                     URI uri = url.toURI();
                     Path pathObject;
-                    if (uri.getScheme().equals("jar")) {
+                    if ("jar".equals(uri.getScheme())) {
                         synchronized (DefaultClassPathResourceLoader.class) {
                             FileSystem fileSystem = null;
                             try {
@@ -348,7 +348,7 @@ public class DefaultClassPathResourceLoader implements ClassPathResourceLoader {
                                 }
                             }
                         }
-                    } else if (uri.getScheme().equals("file")) {
+                    } else if ("file".equals(uri.getScheme())) {
                         pathObject = Paths.get(uri);
                         return pathObject == null || Files.isDirectory(pathObject);
                     }

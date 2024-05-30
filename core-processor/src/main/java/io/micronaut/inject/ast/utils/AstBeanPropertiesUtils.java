@@ -89,7 +89,7 @@ public final class AstBeanPropertiesUtils {
                 continue;
             }
             String methodName = methodElement.getName();
-            if (methodName.equals("getMetaClass")) {
+            if ("getMetaClass".equals(methodName)) {
                 continue;
             }
             boolean isAccessor = canMethodBeUsedForAccess(methodElement, accessKinds, visibility);

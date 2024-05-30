@@ -442,7 +442,7 @@ public class UriMatchTemplate extends UriTemplate implements UriMatcher {
                     // no-op
             }
 
-            if (operator == '/' || modifierStr.equals("?")) {
+            if (operator == '/' || "?".equals(modifierStr)) {
                 pattern.append("?");
             }
             super.addVariableSegment(segments, variable, prefix, delimiter, encode, repeatPrefix, modifierStr, modifierChar, operator, previousDelimiter, isQuerySegment);

@@ -60,13 +60,13 @@ public class LoadedVisitor implements Ordered {
             List<? extends TypeMirror> generics = genericUtils.interfaceGenericTypesFor(typeElement, TypeElementVisitor.class.getName());
             if (generics.size() == 2) {
                 String typeName = generics.get(0).toString();
-                if (typeName.equals(OBJECT_CLASS)) {
+                if (OBJECT_CLASS.equals(typeName)) {
                     classAnnotation = visitor.getClassType();
                 } else {
                     classAnnotation = typeName;
                 }
                 String elementName = generics.get(1).toString();
-                if (elementName.equals(OBJECT_CLASS)) {
+                if (OBJECT_CLASS.equals(elementName)) {
                     elementAnnotation = visitor.getElementType();
                 } else {
                     elementAnnotation = elementName;
@@ -130,7 +130,7 @@ public class LoadedVisitor implements Ordered {
      * @return True if the class element should be visited
      */
     public boolean matchesClass(AnnotationMetadata annotationMetadata) {
-        if (classAnnotation.equals("java.lang.Object")) {
+        if ("java.lang.Object".equals(classAnnotation)) {
             return true;
         }
         return annotationMetadata.hasStereotype(classAnnotation);
@@ -141,7 +141,7 @@ public class LoadedVisitor implements Ordered {
      * @return True if the element should be visited
      */
     public boolean matchesElement(AnnotationMetadata annotationMetadata) {
-        if (elementAnnotation.equals("java.lang.Object")) {
+        if ("java.lang.Object".equals(elementAnnotation)) {
             return true;
         }
         return annotationMetadata.hasStereotype(elementAnnotation);

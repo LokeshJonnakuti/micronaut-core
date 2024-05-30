@@ -654,8 +654,8 @@ public class MediaType implements CharSequence {
         }
         String expectedType = expectedContentType.getType();
         String expectedSubtype = expectedContentType.getSubtype();
-        boolean typeMatch = type.equals("*") || type.equalsIgnoreCase(expectedType);
-        boolean subtypeMatch = subtype.equals("*") || subtype.equalsIgnoreCase(expectedSubtype);
+        boolean typeMatch = "*".equals(type) || type.equalsIgnoreCase(expectedType);
+        boolean subtypeMatch = "*".equals(subtype) || subtype.equalsIgnoreCase(expectedSubtype);
         return typeMatch && subtypeMatch;
     }
 
@@ -743,7 +743,7 @@ public class MediaType implements CharSequence {
     public boolean isTextBased() {
         boolean matches = textTypePatterns.stream().anyMatch(p -> p.matcher(name).matches());
         if (!matches) {
-            matches = subtype.equalsIgnoreCase("json") || subtype.equalsIgnoreCase("xml") || subtype.equalsIgnoreCase("x-yaml");
+            matches = "json".equalsIgnoreCase(subtype) || "xml".equalsIgnoreCase(subtype) || "x-yaml".equalsIgnoreCase(subtype);
         }
         return matches;
     }
@@ -869,14 +869,14 @@ public class MediaType implements CharSequence {
         }
         mediaTypes.sort((o1, o2) -> {
             //The */* type is always last
-            if (o1.type.equals("*")) {
+            if ("*".equals(o1.type)) {
                 return 1;
-            } else if (o2.type.equals("*")) {
+            } else if ("*".equals(o2.type)) {
                 return -1;
             }
-            if (o2.subtype.equals("*") && !o1.subtype.equals("*")) {
+            if ("*".equals(o2.subtype) && !"*".equals(o1.subtype)) {
                 return -1;
-            } else if (o1.subtype.equals("*") && !o2.subtype.equals("*")) {
+            } else if ("*".equals(o1.subtype) && !"*".equals(o2.subtype)) {
                 return 1;
             }
             return o2.getQualityAsNumber().compareTo(o1.getQualityAsNumber());

@@ -97,7 +97,7 @@ final class NettyRequestLifecycle extends RequestLifecycle {
         if (optionalUrl.isPresent()) {
             try {
                 URL url = optionalUrl.get();
-                if (url.getProtocol().equals("file")) {
+                if ("file".equals(url.getProtocol())) {
                     File file = Paths.get(url.toURI()).toFile();
                     if (file.exists() && !file.isDirectory() && file.canRead()) {
                         return new SystemFile(file);

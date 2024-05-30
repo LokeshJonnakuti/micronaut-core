@@ -88,7 +88,7 @@ public class StaticResourceConfiguration implements Toggleable {
         if (enabled) {
             List<ResourceLoader> loaders = new ArrayList<>(paths.size());
             for (String path : paths) {
-                if (path.equals("classpath:")) {
+                if ("classpath:".equals(path)) {
                     throw new ConfigurationException("A path value of [classpath:] will allow access to class files!");
                 }
                 Optional<ResourceLoader> loader = resourceResolver.getLoaderForBasePath(path);

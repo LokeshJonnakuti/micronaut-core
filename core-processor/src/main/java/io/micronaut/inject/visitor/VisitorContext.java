@@ -180,7 +180,7 @@ public interface VisitorContext extends MutableConvertibleValues<Object>, ClassW
         if (dummyFile.isPresent()) {
             URI uri = dummyFile.get().toURI();
             // happens in tests 'mem:///CLASS_OUTPUT/dummy'
-            if (uri.getScheme() != null && !uri.getScheme().equals("mem")) {
+            if (uri.getScheme() != null && !"mem".equals(uri.getScheme())) {
                 // assume files are generated in 'build' or 'target' directories
                 Path dummy = Paths.get(uri).normalize();
                 while (dummy != null) {

@@ -721,7 +721,7 @@ public class BeanDefinitionWriter extends AbstractClassFileWriter implements Bea
                 .map(Element::getName)
                 .toList();
         String prop = visitorContext.getOptions().get(OMIT_CONFPROP_INJECTION_POINTS);
-        keepConfPropInjectPoints = prop == null || !prop.equals("true");
+        keepConfPropInjectPoints = prop == null || !"true".equals(prop);
     }
 
     @Override

@@ -78,7 +78,7 @@ public class DefaultHttpHostResolver implements HttpHostResolver {
      * @return The transformed host
      */
     protected @NonNull String validateHost(@NonNull String host) {
-        if (!host.equals(DEFAULT_HOST)) {
+        if (!DEFAULT_HOST.equals(host)) {
             HostResolutionConfiguration configuration = serverConfiguration.getHostResolution();
             if (configuration != null) {
                 List<Pattern> allowedHosts = configuration.getAllowedHosts();

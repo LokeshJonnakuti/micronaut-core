@@ -63,7 +63,7 @@ public class Log4jLoggingSystem implements ManagedLoggingSystem, io.micronaut.lo
 
     @Override
     public void setLogLevel(String name, LogLevel level) {
-        if (name.equalsIgnoreCase("root")) {
+        if ("root".equalsIgnoreCase(name)) {
             Configurator.setRootLevel(toLog4jLevel(level));
         } else {
             Configurator.setLevel(name, toLog4jLevel(level));

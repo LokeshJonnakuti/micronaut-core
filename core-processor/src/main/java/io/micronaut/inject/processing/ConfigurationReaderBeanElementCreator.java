@@ -321,7 +321,7 @@ final class ConfigurationReaderBeanElementCreator extends DeclaredBeanElementCre
                         ClassElement firstParamType = first.getType();
                         ClassElement secondParamType = second.getType();
 
-                        if (firstParamType.getSimpleName().equals("long") && secondParamType.isAssignable(TimeUnit.class)) {
+                        if ("long".equals(firstParamType.getSimpleName()) && secondParamType.isAssignable(TimeUnit.class)) {
                             PropertyMetadata metadata = metadataBuilder.visitProperty(
                                 classElement,
                                 methodElement.getDeclaringType(),

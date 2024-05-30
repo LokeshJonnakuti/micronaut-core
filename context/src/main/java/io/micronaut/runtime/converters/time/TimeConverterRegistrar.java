@@ -121,7 +121,7 @@ public class TimeConverterRegistrar implements TypeConverterRegistrar {
                             }
                             default -> {
                                 final String seq = g2 + matcher.group(3);
-                                if (seq.equals("ns")) {
+                                if ("ns".equals(seq)) {
                                     return Optional.of(Duration.ofNanos(Integer.parseInt(amount)));
                                 }
                                 context.reject(

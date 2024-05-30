@@ -165,13 +165,13 @@ public class DefaultLocalFunctionRegistry implements ExecutableMethodProcessor<F
                 }
             }
 
-            if (java.util.function.Function.class.isAssignableFrom(declaringType) && method.getMethodName().equals("apply")) {
+            if (java.util.function.Function.class.isAssignableFrom(declaringType) && "apply".equals(method.getMethodName())) {
                 registerFunction(method, functionId);
-            } else if (Consumer.class.isAssignableFrom(declaringType) && method.getMethodName().equals("accept")) {
+            } else if (Consumer.class.isAssignableFrom(declaringType) && "accept".equals(method.getMethodName())) {
                 registerConsumer(method, functionId);
-            } else if (BiFunction.class.isAssignableFrom(declaringType) && method.getMethodName().equals("apply")) {
+            } else if (BiFunction.class.isAssignableFrom(declaringType) && "apply".equals(method.getMethodName())) {
                 registerBiFunction(method, functionId);
-            } else if (Supplier.class.isAssignableFrom(declaringType) && method.getMethodName().equals("get")) {
+            } else if (Supplier.class.isAssignableFrom(declaringType) && "get".equals(method.getMethodName())) {
                 registerSupplier(method, functionId);
             }
         }

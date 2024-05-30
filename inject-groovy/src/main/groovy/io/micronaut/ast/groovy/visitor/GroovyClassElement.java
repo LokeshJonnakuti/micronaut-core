@@ -104,7 +104,7 @@ public class GroovyClassElement extends AbstractGroovyElement implements Arrayab
                 methodName.startsWith("$") ||
                 methodName.contains("trait$") ||
                 methodName.startsWith("super$") ||
-                methodName.equals("setMetaClass") ||
+                "setMetaClass".equals(methodName) ||
                 m.getReturnType().getNameWithoutPackage().equals("MetaClass") ||
                 m.getDeclaringClass().equals(ClassHelper.GROOVY_OBJECT_TYPE) ||
                 m.getDeclaringClass().equals(ClassHelper.OBJECT_TYPE);
@@ -114,7 +114,7 @@ public class GroovyClassElement extends AbstractGroovyElement implements Arrayab
 
         return fieldName.startsWith("__$") ||
                 fieldName.contains("trait$") ||
-                fieldName.equals("metaClass") ||
+                "metaClass".equals(fieldName) ||
                 m.getDeclaringClass().equals(ClassHelper.GROOVY_OBJECT_TYPE) ||
                 m.getDeclaringClass().equals(ClassHelper.OBJECT_TYPE);
     };

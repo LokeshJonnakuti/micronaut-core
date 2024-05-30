@@ -365,7 +365,7 @@ public class NameUtils {
                 return true;
             } else if (methodName.startsWith(readPrefix)) {
                 prefixLength = readPrefix.length();
-            } else if (methodName.startsWith(PREFIX_IS) && readPrefix.equals(PREFIX_GET)) {
+            } else if (methodName.startsWith(PREFIX_IS) && PREFIX_GET.equals(readPrefix)) {
                 prefixLength = IS_LENGTH;
             }
             int len = methodName.length();
@@ -423,7 +423,7 @@ public class NameUtils {
                 if (getterName.startsWith(readPrefix)) {
                     prefixLength = readPrefix.length();
                 }
-                if (getterName.startsWith(PREFIX_IS) && readPrefix.equals(PREFIX_GET)) {
+                if (getterName.startsWith(PREFIX_IS) && PREFIX_GET.equals(readPrefix)) {
                     prefixLength = IS_LENGTH;
                 }
                 return decapitalize(getterName.substring(prefixLength));

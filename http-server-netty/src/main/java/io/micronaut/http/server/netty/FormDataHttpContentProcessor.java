@@ -145,7 +145,7 @@ public class FormDataHttpContentProcessor extends AbstractHttpContentProcessor {
                     // ok, ignore
                 } catch (HttpPostRequestDecoder.ErrorDataDecoderException e) {
                     Throwable cause = e.getCause();
-                    if (cause instanceof IOException && cause.getMessage().equals("Size exceed allowed maximum capacity")) {
+                    if (cause instanceof IOException && "Size exceed allowed maximum capacity".equals(cause.getMessage())) {
                         String partName = decoder.currentPartialHttpData().getName();
                         throw new ContentLengthExceededException("The part named [" + partName + "] exceeds the maximum allowed content length [" + partMaxSize + "]");
                     } else {

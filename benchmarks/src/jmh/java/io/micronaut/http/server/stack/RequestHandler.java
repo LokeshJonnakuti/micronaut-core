@@ -45,10 +45,10 @@ final class RequestHandler extends SimpleChannelInboundHandler<FullHttpRequest> 
     private FullHttpResponse computeResponse(ChannelHandlerContext ctx, FullHttpRequest msg) {
         try {
             String path = URI.create(msg.uri()).getPath();
-            if (path.equals("/search/find")) {
+            if ("/search/find".equals(path)) {
                 return computeResponseSearch(ctx, msg);
             }
-            if (path.equals("/status")) {
+            if ("/status".equals(path)) {
                 return computeResponseStatus(ctx, msg);
             }
             return new DefaultFullHttpResponse(HttpVersion.HTTP_1_1, HttpResponseStatus.NOT_FOUND);

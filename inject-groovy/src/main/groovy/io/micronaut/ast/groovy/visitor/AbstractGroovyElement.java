@@ -358,7 +358,7 @@ public abstract class AbstractGroovyElement extends AbstractAnnotationElement {
             upperBoundsAsElements = Collections.singletonList(getObjectClassElement());
         }
         ClassElement upperType = WildcardElement.findUpperType(upperBoundsAsElements, lowerBoundsAsElements);
-        if (upperType.getType().getName().equals("java.lang.Object")) {
+        if ("java.lang.Object".equals(upperType.getType().getName())) {
             // Not bounded wildcard: <?>
             if (redirectType != null && redirectType != genericsType) {
                 ClassElement definedTypeBound = newClassElement(declaredElement, genericsOwner, redirectType, redirectType, parentTypeArguments, visitedTypes, false);

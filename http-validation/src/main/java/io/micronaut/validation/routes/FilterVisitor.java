@@ -172,7 +172,7 @@ public final class FilterVisitor implements TypeElementVisitor<Object, Object> {
     }
 
     private boolean isPermittedRawType(ClassElement parameterType) {
-        if (parameterType.isArray() && parameterType.isPrimitive() && parameterType.getName().equals("byte")) {
+        if (parameterType.isArray() && parameterType.isPrimitive() && "byte".equals(parameterType.getName())) {
             return true;
         }
         return parameterType.isAssignable(byte[].class) || parameterType.isAssignable(ByteBuffer.class) || parameterType.isAssignable(String.class);

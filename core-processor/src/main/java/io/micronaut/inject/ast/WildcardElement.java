@@ -50,7 +50,7 @@ public interface WildcardElement extends GenericElement {
      * @since 4.0.0
      */
     default boolean isBounded() {
-        return !getName().equals("java.lang.Object");
+        return !"java.lang.Object".equals(getName());
     }
 
     /**

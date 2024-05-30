@@ -49,11 +49,11 @@ class ResourceSerializerModifier extends BeanSerializerModifier {
             while (i.hasNext()) {
                 BeanPropertyWriter writer = i.next();
                 String name = writer.getName();
-                if (name.equals("links")) {
+                if ("links".equals(name)) {
                     i.remove();
                     links = writer;
                 }
-                if (name.equals("embedded")) {
+                if ("embedded".equals(name)) {
                     i.remove();
                     embedded = writer;
                 }
