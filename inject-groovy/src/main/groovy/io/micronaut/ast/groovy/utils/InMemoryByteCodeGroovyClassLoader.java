@@ -16,6 +16,8 @@
 package io.micronaut.ast.groovy.utils;
 
 import groovy.lang.GroovyClassLoader;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import io.micronaut.core.annotation.Internal;
 import io.micronaut.inject.annotation.AbstractAnnotationMetadataBuilder;
 import org.codehaus.groovy.control.CompilerConfiguration;
@@ -115,7 +117,7 @@ public class InMemoryByteCodeGroovyClassLoader extends GroovyClassLoader {
      * @throws MalformedURLException If the name is not valid
      */
     public void addService(String name, Set<String> classes) throws MalformedURLException {
-        generatedUrls.add(new URL(null, "mem:META-INF/services/" + name, new URLStreamHandler() {
+        generatedUrls.add(Urls.create(null, "mem:META-INF/services/" + name, new URLStreamHandler() {
             @Override
             protected URLConnection openConnection(URL u) {
                 return new URLConnection(u) {
@@ -131,7 +133,7 @@ public class InMemoryByteCodeGroovyClassLoader extends GroovyClassLoader {
                     }
                 };
             }
-        }));
+        }, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS));
     }
 
     @Override

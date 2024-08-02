@@ -15,6 +15,8 @@
  */
 package io.micronaut.http.server.netty;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import io.micronaut.context.ApplicationContext;
 import io.micronaut.context.DefaultApplicationContext;
 import io.micronaut.context.env.CachedEnvironment;
@@ -415,7 +417,7 @@ public class NettyHttpServer implements NettyEmbeddedServer {
     @Override
     public URL getURL() {
         try {
-            return new URL(getScheme() + "://" + getHost() + ':' + getPort());
+            return Urls.create(getScheme() + "://" + getHost() + ':' + getPort(), Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
         } catch (MalformedURLException e) {
             throw new ConfigurationException("Invalid server URL: " + e.getMessage(), e);
         }
