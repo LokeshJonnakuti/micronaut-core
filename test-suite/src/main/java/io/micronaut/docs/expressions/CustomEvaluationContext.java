@@ -16,12 +16,13 @@
 package io.micronaut.docs.expressions;
 
 import jakarta.inject.Singleton;
+import java.security.SecureRandom;
 
 import java.util.Random;
 
 @Singleton
 public class CustomEvaluationContext {
-    private Random random = random = new Random();
+    private Random random = random = new SecureRandom();
 
     public int generateRandom(int min, int max) {
         return random.nextInt(max - min) + min;
