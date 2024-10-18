@@ -15,6 +15,7 @@
  */
 package io.micronaut.context.env;
 
+import io.github.pixee.security.BoundedLineReader;
 import io.micronaut.context.ApplicationContextConfiguration;
 import io.micronaut.context.exceptions.ConfigurationException;
 import io.micronaut.core.annotation.Internal;
@@ -978,7 +979,7 @@ public class DefaultEnvironment extends PropertySourcePropertyResolver implement
             InputStreamReader isr = new InputStreamReader(is);
             BufferedReader br = new BufferedReader(isr);
             String line;
-            while ((line = br.readLine()) != null) {
+            while ((line = BoundedLineReader.readLine(br, 5_000_000)) != null) {
                 stdout.append(line);
             }
         } catch (IOException e) {

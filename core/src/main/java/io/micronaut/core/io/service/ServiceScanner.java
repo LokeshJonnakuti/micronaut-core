@@ -15,6 +15,7 @@
  */
 package io.micronaut.core.io.service;
 
+import io.github.pixee.security.BoundedLineReader;
 import io.micronaut.core.annotation.Internal;
 import io.micronaut.core.annotation.Nullable;
 import io.micronaut.core.io.IOUtils;
@@ -134,7 +135,7 @@ final class ServiceScanner<S> {
         try {
             try (BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()))) {
                 while (true) {
-                    String line = reader.readLine();
+                    String line = BoundedLineReader.readLine(reader, 5_000_000);
                     if (line == null) {
                         break;
                     }

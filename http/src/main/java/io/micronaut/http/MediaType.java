@@ -15,6 +15,7 @@
  */
 package io.micronaut.http;
 
+import io.github.pixee.security.BoundedLineReader;
 import io.micronaut.core.annotation.Internal;
 import io.micronaut.core.annotation.NonNull;
 import io.micronaut.core.annotation.TypeHint;
@@ -983,7 +984,7 @@ public class MediaType implements CharSequence {
             BufferedReader reader = new BufferedReader(new InputStreamReader(is, StandardCharsets.US_ASCII));
             Map<String, String> result = new LinkedHashMap<>(100);
             String line;
-            while ((line = reader.readLine()) != null) {
+            while ((line = BoundedLineReader.readLine(reader, 5_000_000)) != null) {
                 if (line.isEmpty() || line.charAt(0) == '#') {
                     continue;
                 }
