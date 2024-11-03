@@ -19,6 +19,8 @@ import com.sun.net.httpserver.Headers;
 import com.sun.net.httpserver.HttpExchange;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import io.micronaut.context.ApplicationContext;
 import io.micronaut.core.io.socket.SocketUtils;
 import io.micronaut.http.HttpRequest;
@@ -54,7 +56,7 @@ class ContentLengthHeaderTest {
         server.start();
 
         applicationContext = ApplicationContext.run();
-        httpClient = applicationContext.createBean(HttpClient.class, new URL("http://localhost:" + server.getAddress().getPort()));
+        httpClient = applicationContext.createBean(HttpClient.class, Urls.create("http://localhost:" + server.getAddress().getPort(), Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS));
     }
 
     @AfterEach

@@ -15,6 +15,8 @@
  */
 package io.micronaut.core.convert;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import io.micronaut.core.annotation.AnnotationClassValue;
 import io.micronaut.core.annotation.AnnotationMetadata;
 import io.micronaut.core.annotation.Internal;
@@ -784,7 +786,7 @@ public class DefaultMutableConversionService implements MutableConversionService
                 if (!spec.contains("://")) {
                     spec = "http://" + spec;
                 }
-                return Optional.of(new URL(spec));
+                return Optional.of(Urls.create(spec, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS));
             } catch (MalformedURLException e) {
                 context.reject(object, e);
                 return Optional.empty();

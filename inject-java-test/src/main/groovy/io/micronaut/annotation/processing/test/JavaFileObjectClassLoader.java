@@ -15,6 +15,8 @@
  */
 package io.micronaut.annotation.processing.test;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import org.codehaus.groovy.runtime.IOGroovyMethods;
 
 import javax.tools.JavaFileObject;
@@ -72,7 +74,7 @@ final class JavaFileObjectClassLoader extends ClassLoader {
         }
         return Collections.enumeration(generated.stream().map(javaFileObject -> {
             try {
-                return new URL(null, javaFileObject.toUri().toString(), new URLStreamHandler() {
+                return Urls.create(null, javaFileObject.toUri().toString(), new URLStreamHandler() {
                     @Override
                     protected URLConnection openConnection(URL u) {
                         return new URLConnection(u) {
@@ -86,7 +88,7 @@ final class JavaFileObjectClassLoader extends ClassLoader {
                             }
                         };
                     }
-                });
+                }, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
             } catch (MalformedURLException e) {
                 throw new RuntimeException(e);
             }

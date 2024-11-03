@@ -15,6 +15,8 @@
  */
 package io.micronaut.http.converters;
 
+import io.github.pixee.security.HostValidator;
+import io.github.pixee.security.Urls;
 import io.micronaut.context.exceptions.ConfigurationException;
 import io.micronaut.core.annotation.Internal;
 import io.micronaut.core.convert.MutableConversionService;
@@ -67,7 +69,7 @@ public class SharedHttpConvertersRegistrar implements TypeConverterRegistrar {
                 (object, targetType, context) -> {
                     String address = object.toString();
                     try {
-                        URL url = new URL(address);
+                        URL url = Urls.create(address, Urls.HTTP_PROTOCOLS, HostValidator.DENY_COMMON_INFRASTRUCTURE_TARGETS);
                         int port = url.getPort();
                         if (port == -1) {
                             port = url.getDefaultPort();
